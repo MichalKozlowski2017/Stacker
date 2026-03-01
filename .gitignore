@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+src-tauri/target/
+
+# Tauri generated
+src-tauri/gen/
+
+# Rust
+**/*.rs.bk
+
+# Logs
+*.log
+
+# OS
+.DS_Store

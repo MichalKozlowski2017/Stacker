@@ -1,0 +1,51 @@
+[package]
+name = "stacker"
+version = "0.1.0"
+edition = "2021"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+tauri-plugin-dialog = "2"
+tauri-plugin-fs = "2"
+tauri-plugin-shell = "2"
+
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+# Image I/O (JPEG, PNG, TIFF)
+image = { version = "0.25", default-features = false, features = [
+  "jpeg",
+  "png",
+  "tiff",
+  "bmp",
+] }
+
+# RAW photo decoding (CR2, ARW, NEF, ORF, RW2, ...)
+rawloader = "0.37"
+
+# Parallel processing (per-pixel sharpness maps)
+rayon = "1"
+
+# FFT for phase-correlation image alignment
+rustfft = "6"
+
+# Base64 encoding for passing images to frontend
+base64 = "0.22"
+
+# Error handling
+anyhow = "1"
+thiserror = "2"
+
+[profile.dev]
+# Without this, image decoding in debug mode is 20-50x slower than release.
+# opt-level=2 gives near-release speed with fast incremental rebuilds.
+opt-level = 2
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+codegen-units = 1
+panic = "abort"

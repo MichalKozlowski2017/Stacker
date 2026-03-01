@@ -1,0 +1,104 @@
+/* ── Reset & base ─────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #141414;
+  --surface: #1e1e1e;
+  --surface2: #272727;
+  --border: #333;
+  --accent: #4f8ef7;
+  --accent-dim: #2a4d8f;
+  --text: #e8e8e8;
+  --text-muted: #888;
+  --danger: #f75b5b;
+  --success: #4fcb71;
+  --radius: 8px;
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 13px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+#app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Scrollbar ────────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+/* ── Buttons ──────────────────────────────────────────────────────── */
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: var(--radius);
+  font-family: inherit;
+  font-size: 13px;
+  transition:
+    background 0.15s,
+    opacity 0.15s;
+}
+button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+  padding: 8px 18px;
+  font-weight: 600;
+}
+.btn-primary:hover:not(:disabled) {
+  background: #3a7ae0;
+}
+
+.btn-secondary {
+  background: var(--surface2);
+  color: var(--text);
+  padding: 8px 14px;
+  border: 1px solid var(--border);
+}
+.btn-secondary:hover:not(:disabled) {
+  background: #323232;
+}
+
+.btn-danger {
+  background: transparent;
+  color: var(--danger);
+  padding: 4px 8px;
+  font-size: 12px;
+  border: 1px solid var(--danger);
+}
+.btn-danger:hover:not(:disabled) {
+  background: rgba(247, 91, 91, 0.12);
+}
